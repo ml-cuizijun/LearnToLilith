@@ -1,0 +1,6 @@
+{
+  "editor.stickyScroll.enabled": true,
+  "editor.stickyScroll.maxLineCount": 6,
+  "outline.collapseItems": "alwaysCollapse",
+  "window.title": "LearnToLilith — ${activeEditorShort}${separator}${rootName}"
+}
