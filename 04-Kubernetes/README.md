@@ -67,3 +67,5 @@
 Pod Pending / CrashLoop · 三探针区别 · Service Endpoints 为空 · 滚动更新与就绪探针 · drain 会怎样 · 资源 limit 与 OOMKilled
 
 串题：[综合练习题.md](综合练习题.md) · 项目故事：[项目深挖模板.md](项目深挖模板.md)
+
+架构层白板（Thanos 全管线、Istio sidecar 成本、Karmada vs GitOps、OpenKruise、GPU 分池）不在本模块展开 → [10-04 大规模可靠性架构](../10-SRE实践/04-大规模可靠性架构/)。
