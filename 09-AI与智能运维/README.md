@@ -1,31 +1,40 @@
 # 09 AI 与智能运维
 
-> **加分模块，不是过关生死线。** 实用 > 原理：会用 LLM 提效、能讲清 RAG、懂工具调用/MCP/Agent 边界、集群有 GPU 会运维、AIOps 不吹自动修。  
-> 生产数据/密钥不出域；AI 只做草稿和只读；写操作必须人审；模型会幻觉。
-
----
-
-## 目录
-
-| # | 章 | 权重 | 必会 |
-|---|----|------|------|
-| 01 | [LLM 与 Transformer 基础](01-LLM与Transformer基础/) | ★★★★ | token/上下文/温度/幻觉；开闭源怎么选 |
-| 02 | [Prompt 工程](02-Prompt工程/) | ★★★★ | 结构化 prompt、few-shot、运维场景怎么写 |
-| 03 | [RAG 检索增强](03-RAG检索增强/) | ★★★★★ | 切块→embedding→检索→生成；向量库挂在这章 |
-| 04 | [Function Calling 与 Tool Use](04-Function-Calling与Tool-Use/) | ★★★★ | 调监控/只读命令；schema、审批 |
-| 05 | [MCP 协议](05-MCP协议/) | ★★★★ | 是什么、和 Function Calling 的关系、落地 |
-| 06 | [Agent 智能体](06-Agent智能体/) | ★★★★ | ReAct、工具/记忆、失控防护 |
-| 07 | [AI 工具实战与 Vibe Coding](07-AI工具实战与Vibe-Coding/) | ★★★★★ | Cursor/CLI 提效；什么不能交给模型 |
-| 08 | [GPU 与推理服务运维](08-GPU与推理服务运维/) | ★★★★★ | K8s GPU、显存/OOM、TTFT、vLLM vs Ollama |
-| 09 | [AIOps 落地](09-AIOps落地/) | ★★★★ | 降噪、根因辅助、边界：不能自动修 |
-
-LangChain / Dify 等框架名不单开章：编排一句挂 Agent，推理引擎挂 GPU。
+> **定位**：大厂 SRE **加分项**，不是过关生死线。  
+> **考什么**：懂边界、能落地、不吹「AI 替值班」；能讲 RAG/MCP/Agent/GPU/AIOps 口径。  
+> **红线**：生产数据/密钥不出域；AI 只出草稿和只读；写操作必须人审；模型会幻觉。
 
 ---
 
 ## 复习路线
 
-- **必须吃透**：03 RAG、04 Function Calling、05 MCP、07 工具实战、08 GPU
-- **要会用**：02 Prompt、06 Agent
-- **建立直觉**：01 LLM 基础
-- **看项目**：09 AIOps（有落地是加分，没有也要能讲边界）
+```
+必吃透：03 RAG → 04 FC → 05 MCP → 07 工具实战 → 08 GPU
+要会用：02 Prompt → 06 Agent
+建直觉：01 LLM 基础
+讲边界：09 AIOps（没落地项目也要能讲「不能自动修」）
+```
+
+| # | 章 | 权重 | 面试核心 |
+|---|----|:----:|----------|
+| 03 | [RAG](03-RAG检索增强/) | ★★★★★ | 切块→向量→检索→生成；向量库选型 |
+| 04 | [Function Calling](04-Function-Calling与Tool-Use/) | ★★★★ | 只读工具、schema、审批闸门 |
+| 05 | [MCP](05-MCP协议/) | ★★★★ | 和 FC 区别；stdio vs HTTP |
+| 07 | [AI 工具实战](07-AI工具实战与Vibe-Coding/) | ★★★★★ | Cursor/CLI 提效；review 清单 |
+| 08 | [GPU 推理运维](08-GPU与推理服务运维/) | ★★★★★ | 显存、TTFT、vLLM、K8s GPU |
+| 02 | [Prompt 工程](02-Prompt工程/) | ★★★★ | 四要素、注入、JSON 输出 |
+| 06 | [Agent](06-Agent智能体/) | ★★★★ | ReAct、权限、max_steps |
+| 01 | [LLM 基础](01-LLM与Transformer基础/) | ★★★★ | token/窗口/温度/幻觉 |
+| 09 | [AIOps 落地](09-AIOps落地/) | ★★★★ | 降噪、根因辅助、禁止自动修 |
+
+---
+
+## 每章结构（与运维章不同）
+
+1. **面试怎么考** — 问法 + **30 秒 / 2 分钟口述模板**（可直接背）
+2. **SRE 边界** — 该用 / 禁止
+3. **原理讲透** — 图 + 白话
+4. **落地场景** — 值班/平台真实例子
+5. **必会 · 常考** + **合上书**
+
+LangChain/Dify 不单开章：编排挂 Agent，推理引擎挂 GPU。
