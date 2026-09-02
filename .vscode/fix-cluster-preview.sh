@@ -14,7 +14,7 @@ bash "$ROOT/.vscode/apply-cursor-preview-red.sh"
 bash "$ROOT/.vscode/clear-markdown-editor-cache.sh"
 
 echo
-echo "完成。重新打开 Cursor → 打开 01-集群架构/知识点.md"
+echo "完成。重新打开 Cursor → 打开 03-Kubernetes/01-集群架构/知识点.md"
 echo "  ① Revert File（若标签有未保存圆点）"
 echo "  ② 点 Preview → Cmd+F 搜「四、对账」"
 echo "  ③ 标题应变红、内容应铺满宽度、Mermaid 应渲染成图"

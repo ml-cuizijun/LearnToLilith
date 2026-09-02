@@ -65,10 +65,18 @@ def split_inline_code(line: str) -> list[tuple[str, bool]]:
     return parts
 
 
+# cross-chapter links ending in 知识点.md → folder link (TipTap embed bug)
+CROSS_MD = re.compile(
+    r"\]\((\.\./[^)]+/)知识点\.md\)",
+)
+
+
 def fix_segment(text: str, in_mermaid: bool) -> str:
     if in_mermaid:
         text = MERMAID_ARROW.sub("---", text)
         return text
+
+    text = CROSS_MD.sub(r"](\1)", text)
 
     text = REGISTRY_PATH.sub(r"/registry/{\1}/{\2}/{\3}", text)
 
