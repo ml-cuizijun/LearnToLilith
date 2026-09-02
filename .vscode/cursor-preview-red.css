@@ -1,0 +1,179 @@
+/* LearnToLilith · Cursor Preview|Markdown 排版
+ * 目标：.markdown-editor-react__richtext-content .ProseMirror
+ * 注入：bash .vscode/apply-cursor-preview-red.sh
+ */
+
+.markdown-editor-react__richtext-content {
+  /* 默认 800px 太窄，左右大片空白；拉满编辑器可用宽度 */
+  max-width: none !important;
+  width: 100% !important;
+  --markdown-editor-content-padding: 24px 40px 80px !important;
+}
+
+/* 有的版本把限宽写在内层滚动区，一起放开 */
+.markdown-editor-react__scroll-area-wrapper .markdown-editor-react__richtext-content,
+.markdown-editor-react__content .markdown-editor-react__richtext-content {
+  max-width: none !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror {
+  font-size: 15.5px !important;
+  line-height: 1.75 !important;
+  letter-spacing: 0.01em;
+}
+
+/* ========== 标题：红 + 呼吸感 ========== */
+.markdown-editor-react__richtext-content .ProseMirror h1,
+.markdown-editor-react__richtext-content .ProseMirror h2,
+.markdown-editor-react__richtext-content .ProseMirror h3,
+.markdown-editor-react__richtext-content .ProseMirror h4,
+.markdown-editor-react__richtext-content .ProseMirror h5,
+.markdown-editor-react__richtext-content .ProseMirror h6 {
+  color: #c62828 !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror h1 {
+  font-size: 1.85em !important;
+  margin: 0.4em 0 0.7em !important;
+  padding-bottom: 0.35em !important;
+  border-bottom: 2px solid rgba(198, 40, 40, 0.45) !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror h2 {
+  font-size: 1.4em !important;
+  margin: 1.6em 0 0.65em !important;
+  padding-bottom: 0.25em !important;
+  border-bottom: 1px solid rgba(198, 40, 40, 0.28) !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror h3 {
+  font-size: 1.15em !important;
+  margin: 1.25em 0 0.45em !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror h4,
+.markdown-editor-react__richtext-content .ProseMirror h5,
+.markdown-editor-react__richtext-content .ProseMirror h6 {
+  font-size: 1.05em !important;
+  margin: 1em 0 0.4em !important;
+  color: #ad4a3a !important;
+}
+
+/* 练习题题干 */
+.markdown-editor-react__richtext-content .ProseMirror h2 + p strong,
+.markdown-editor-react__richtext-content .ProseMirror h2 + p b {
+  color: #c62828 !important;
+  font-size: 1.02em;
+}
+
+/* ========== 正文段落 ========== */
+.markdown-editor-react__richtext-content .ProseMirror p {
+  margin: 0.55em 0 !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror > p + p {
+  margin-top: 0.7em !important;
+}
+
+/* ========== 引用 / callout：左侧色条，略收紧 ========== */
+.markdown-editor-react__richtext-content .ProseMirror blockquote {
+  margin: 0.85em 0 !important;
+  padding: 0.55em 0.9em !important;
+  border-left: 4px solid rgba(198, 40, 40, 0.55) !important;
+  border-radius: 0 6px 6px 0;
+  background: rgba(198, 40, 40, 0.06) !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror blockquote p {
+  margin: 0.25em 0 !important;
+  line-height: 1.65 !important;
+}
+
+/* ========== 列表 ========== */
+.markdown-editor-react__richtext-content .ProseMirror ul,
+.markdown-editor-react__richtext-content .ProseMirror ol {
+  margin: 0.55em 0 0.75em !important;
+  padding-left: 1.4em !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror li {
+  margin: 0.28em 0 !important;
+  line-height: 1.65 !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror li > p {
+  margin: 0.15em 0 !important;
+}
+
+/* ========== 代码：略紧凑、好扫 ========== */
+.markdown-editor-react__richtext-content .ProseMirror code {
+  font-size: 0.9em !important;
+  padding: 0.12em 0.35em !important;
+  border-radius: 4px !important;
+  background: rgba(127, 127, 127, 0.14) !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror pre {
+  margin: 0.85em 0 !important;
+  padding: 0.85em 1em !important;
+  border-radius: 8px !important;
+  background: rgba(127, 127, 127, 0.1) !important;
+  border: 1px solid rgba(127, 127, 127, 0.18) !important;
+  line-height: 1.55 !important;
+  overflow-x: auto !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror pre code {
+  padding: 0 !important;
+  background: transparent !important;
+  font-size: 0.86em !important;
+}
+
+/* ========== 表格 ========== */
+.markdown-editor-react__richtext-content .ProseMirror table {
+  margin: 0.9em 0 !important;
+  border-collapse: collapse !important;
+  width: 100% !important;
+  font-size: 0.94em !important;
+  line-height: 1.5 !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror th,
+.markdown-editor-react__richtext-content .ProseMirror td {
+  padding: 0.45em 0.7em !important;
+  border: 1px solid rgba(127, 127, 127, 0.28) !important;
+  vertical-align: top !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror th {
+  background: rgba(198, 40, 40, 0.08) !important;
+  font-weight: 650 !important;
+  color: inherit !important;
+}
+
+.markdown-editor-react__richtext-content .ProseMirror tr:nth-child(even) td {
+  background: rgba(127, 127, 127, 0.05) !important;
+}
+
+/* ========== 分隔线：淡一点 ========== */
+.markdown-editor-react__richtext-content .ProseMirror hr {
+  margin: 1.6em 0 !important;
+  border: none !important;
+  border-top: 1px solid rgba(127, 127, 127, 0.28) !important;
+}
+
+/* ========== 链接 ========== */
+.markdown-editor-react__richtext-content .ProseMirror a {
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(198, 40, 40, 0.35);
+}
+
+.markdown-editor-react__richtext-content .ProseMirror a:hover {
+  border-bottom-color: #c62828;
+}

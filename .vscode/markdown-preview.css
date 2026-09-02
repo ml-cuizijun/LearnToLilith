@@ -1,0 +1,93 @@
+/* LearnToLilith · VS Code Markdown Preview（Cmd+Shift+V）备用样式
+ * Cursor 顶部 Preview|Markdown 请用 cursor-preview-red.css
+ */
+
+body.vscode-body,
+.vscode-body,
+body {
+  line-height: 1.75;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1.25em 3em;
+}
+
+body.vscode-body h1,
+.vscode-body h1,
+body h1 {
+  color: #c62828 !important;
+  border-bottom: 2px solid rgba(198, 40, 40, 0.45);
+  padding-bottom: 0.35em;
+  margin: 0.4em 0 0.7em;
+  line-height: 1.35;
+}
+
+body.vscode-body h2,
+.vscode-body h2,
+body h2 {
+  color: #c62828 !important;
+  border-bottom: 1px solid rgba(198, 40, 40, 0.28);
+  padding-bottom: 0.25em;
+  margin: 1.6em 0 0.65em;
+  line-height: 1.35;
+}
+
+body.vscode-body h3,
+.vscode-body h3,
+body h3 {
+  color: #c62828 !important;
+  margin: 1.25em 0 0.45em;
+}
+
+body.vscode-body h4,
+body.vscode-body h5,
+body.vscode-body h6,
+.vscode-body h4,
+.vscode-body h5,
+.vscode-body h6,
+body h4,
+body h5,
+body h6 {
+  color: #ad4a3a !important;
+  margin: 1em 0 0.4em;
+}
+
+body.vscode-body blockquote,
+.vscode-body blockquote,
+body blockquote {
+  border-left: 4px solid rgba(198, 40, 40, 0.55);
+  background: rgba(198, 40, 40, 0.06);
+  padding: 0.55em 0.9em;
+  border-radius: 0 6px 6px 0;
+  margin: 0.85em 0;
+}
+
+body.vscode-body h2[id^="q"] + p,
+body.vscode-body h2[id^="q"] + p > strong,
+.vscode-body h2[id^="q"] + p,
+.vscode-body h2[id^="q"] + p > strong,
+body h2[id^="q"] + p,
+body h2[id^="q"] + p > strong {
+  color: #c62828 !important;
+}
+
+body.vscode-body pre,
+.vscode-body pre,
+body pre {
+  border-radius: 8px;
+  padding: 0.85em 1em;
+  line-height: 1.55;
+}
+
+body.vscode-body table th,
+.vscode-body table th,
+body table th {
+  background: rgba(198, 40, 40, 0.08);
+}
+
+body.vscode-body hr,
+.vscode-body hr,
+body hr {
+  border: none;
+  border-top: 1px solid rgba(127, 127, 127, 0.28);
+  margin: 1.6em 0;
+}

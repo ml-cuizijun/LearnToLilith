@@ -5,5 +5,9 @@
       "path": "."
     }
   ],
-  "settings": {}
+  "settings": {
+    "markdown.styles": [
+      ".vscode/markdown-preview.css"
+    ]
+  }
 }

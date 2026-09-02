@@ -4,28 +4,34 @@
 > **考什么**：懂边界、能落地、不吹「AI 替值班」；能讲 RAG/MCP/Agent/GPU/AIOps 口径。  
 > **红线**：生产数据/密钥不出域；AI 只出草稿和只读；写操作必须人审；模型会幻觉。
 
+> **编号 = 阅读顺序**：模型基础 → 用法（Prompt/RAG/FC/MCP/Agent）→ 工具与工程（GPU/推理/AIOps）。标 🚧 的是目录已建、**内容待写**。
+
 ---
 
-## 复习路线
+## 复习路线（时间不够按这个顺序）
 
 ```
-必吃透：03 RAG → 04 FC → 05 MCP → 07 工具实战 → 08 GPU
+必吃透：03 RAG → 04 FC → 05 MCP → 07 工具实战 → 08 GPU → 09 推理服务稳定性
 要会用：02 Prompt → 06 Agent
 建直觉：01 LLM 基础
-讲边界：08 AIOps（没落地项目也要能讲「不能自动修」）
+讲边界：10 AIOps（没落地项目也要能讲「不能自动修」）
 ```
 
 | # | 章 | 权重 | 面试核心 |
 |---|----|:----:|----------|
-| 03 | [RAG](03-RAG检索增强/) | ★★★★★ | 切块→向量→检索→生成；向量库选型 |
-| 04 | [Function Calling](04-Function-Calling与Tool-Use/) | ★★★★ | 只读工具、schema、审批闸门 |
-| 05 | [MCP](05-MCP协议/) | ★★★★ | 和 FC 区别；stdio vs HTTP |
-| 07 | [AI 工具实战](07-AI工具实战与Vibe-Coding/) | ★★★★★ | Cursor/CLI 提效；review 清单 |
-| 08 | [GPU 推理运维](08-GPU与推理服务运维/) | ★★★★★ | 显存、TTFT、vLLM、K8s GPU |
+| 01 | [LLM 与 Transformer 基础](01-LLM与Transformer基础/) | ★★★★ | token/窗口/温度/幻觉 |
 | 02 | [Prompt 工程](02-Prompt工程/) | ★★★★ | 四要素、注入、JSON 输出 |
-| 06 | [Agent](06-Agent智能体/) | ★★★★ | ReAct、权限、max_steps |
-| 01 | [LLM 基础](01-LLM与Transformer基础/) | ★★★★ | token/窗口/温度/幻觉 |
-| 09 | [AIOps 落地](09-AIOps落地/) | ★★★★ | 降噪、根因辅助、禁止自动修 |
+| 03 | [RAG 检索增强](03-RAG检索增强/) | ★★★★★ | 切块→向量→检索→生成；向量库选型 |
+| 04 | [Function Calling 与 Tool Use](04-Function-Calling与Tool-Use/) | ★★★★ | 只读工具、schema、审批闸门 |
+| 05 | [MCP 协议](05-MCP协议/) | ★★★★ | 和 FC 区别；stdio vs HTTP |
+| 06 | [Agent 智能体](06-Agent智能体/) | ★★★★ | ReAct、权限、max_steps |
+| 07 | [AI 工具实战与 Vibe-Coding](07-AI工具实战与Vibe-Coding/) | ★★★★★ | Cursor/CLI 提效；review 清单 |
+| 08 | [GPU 资源与调度](08-GPU资源与调度/) | ★★★★★ | 显存账本、共享/MIG、K8s device plugin、卡故障 |
+| 09 | [推理服务性能与稳定性](09-推理服务性能与稳定性/) 🚧 | ★★★★★ | TTFT/TPOT、批处理与 KV Cache、vLLM 部署、限流与降级 |
+| 10 | [AIOps 落地](10-AIOps落地/) | ★★★★ | 降噪、根因辅助、禁止自动修 |
+
+> 💡 **边界**：08 只管**资源与调度**（卡怎么分、怎么监控、坏了怎么办），09 管**服务质量**（延迟指标、吞吐、打不动怎么办）。
+> 告警降噪的通用方法论在 [09-03 告警设计与降噪](../09-可观测性与SRE方法论/03-告警设计与降噪/)，本章 10 只讲「AI 能帮到哪一步、哪一步必须人」。
 
 ---
 

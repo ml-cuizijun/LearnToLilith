@@ -1,6 +1,16 @@
 {
+  // Preview|Markdown 红色标题：依赖 .vscode/apply-cursor-preview-red.sh 注入 Cursor workbench。
+  // Cursor 大版本更新后若红色消失，在仓库根目录再跑：
+  //   bash .vscode/apply-cursor-preview-red.sh
+  // 然后 Cmd+Q 完全退出再打开。
   "editor.stickyScroll.enabled": true,
   "editor.stickyScroll.maxLineCount": 6,
-  "outline.collapseItems": "alwaysCollapse",
-  "window.title": "LearnToLilith — ${activeEditorShort}${separator}${rootName}"
+  "outline.collapseItems": "alwaysExpand",
+  "window.title": "LearnToLilith — ${activeEditorShort}${separator}${rootName}",
+  "markdown.styles": [
+    ".vscode/markdown-preview.css"
+  ],
+  "markdown.preview.breaks": true,
+  // Preview 只显示部分标题时：Cmd+Shift+P →「Markdown Editor: Toggle Editor Mode」切两次强制重渲染；
+  // 若仍异常且出现 installation corrupt 提示，在仓库根目录跑：bash .vscode/remove-cursor-preview-red.sh
 }
