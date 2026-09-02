@@ -1,12 +1,7 @@
 {
-  // 知识点/练习题：默认用 VS Code 原生 Markdown Preview（完整渲染 + 红标题 + 全宽）。
-  // 顶部 Preview|Markdown（TipTap）有截断/缓存 bug，不再作为默认阅读方式。
-  // 要编辑：双击预览正文，或 Cmd+Shift+E 切回文本编辑器。
-  "workbench.editorAssociations": {
-    "**/知识点.md": "vscode.markdown.preview.editor",
-    "**/练习题.md": "vscode.markdown.preview.editor"
-  },
-  "markdown.preview.doubleClickToSwitchToEditor": true,
+  // 阅读用顶部 Preview | Markdown（TipTap：Mermaid + 全宽 + 红标题）。
+  // 样式注入：bash .vscode/apply-cursor-preview-red.sh（Cursor 更新后需重跑 + Cmd+Q）
+  // 集群架构 Preview 异常：Cmd+Q 后 bash .vscode/fix-cluster-preview.sh
   "editor.stickyScroll.enabled": true,
   "editor.stickyScroll.maxLineCount": 6,
   "outline.collapseItems": "alwaysExpand",
@@ -15,5 +10,6 @@
     ".vscode/markdown-preview.css"
   ],
   "markdown.preview.breaks": true,
-  // 若坚持用顶部 Preview|Markdown：bash .vscode/apply-cursor-preview-red.sh 后 Cmd+Q 重启
+  "markdown.preview.doubleClickToSwitchToEditor": true,
+  // 全宽+红标题：bash .vscode/apply-cursor-preview-red.sh 后 Cmd+Q 重启
 }

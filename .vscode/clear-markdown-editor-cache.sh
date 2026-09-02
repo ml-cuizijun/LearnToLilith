@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# 清除集群架构章节的 TipTap 缓存（需先 Cmd+Q 完全退出 Cursor）。
+# 清除集群架构 Preview 的 TipTap 缓存（需先 Cmd+Q 完全退出 Cursor）。
 set -euo pipefail
 
 WS_ROOT="$HOME/Library/Application Support/Cursor/User/workspaceStorage"
+GS_DB="$HOME/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
 
 if pgrep -xq Cursor; then
   echo "请先 Cmd+Q 完全退出 Cursor，再运行本脚本。" >&2
@@ -23,48 +24,41 @@ while IFS= read -r -d '' wsjson; do
   fi
   db="$(dirname "$wsjson")/state.vscdb"
   [[ -f "$db" ]] || continue
+  sqlite3 "$db" "DELETE FROM ItemTable WHERE key='memento/markdownEditor';"
+  echo "已清除 workspace markdownEditor 缓存: $db"
+  found=1
+done < <(find "$WS_ROOT" -name workspace.json -print0 2>/dev/null)
 
-  python3 - "$db" "${targets[@]}" <<'PY'
+if [[ -f "$GS_DB" ]]; then
+  python3 - "$GS_DB" "${targets[@]}" <<'PY'
 import json, sqlite3, sys
-from urllib.parse import quote, unquote
+from urllib.parse import unquote
 
 db, *needles = sys.argv[1:]
 conn = sqlite3.connect(db)
-row = conn.execute("SELECT value FROM ItemTable WHERE key='memento/markdownEditor'").fetchone()
+key = "cursor/markdownEditorModePreferences"
+row = conn.execute("SELECT value FROM ItemTable WHERE key=?", (key,)).fetchone()
 if not row:
-    print(f"跳过（无 markdownEditor 缓存）: {db}")
     sys.exit(0)
-
 data = json.loads(row[0])
-vs = data.get("markdownEditorViewState", [])
-kept, removed = [], []
-for uri, state in vs:
+removed = []
+for uri in list(data.keys()):
     path = unquote(uri.removeprefix("file://"))
     if any(n in path for n in needles):
         removed.append(path)
-    else:
-        kept.append([uri, state])
-
-if not removed:
-    print(f"跳过（未命中集群架构）: {db}")
-    sys.exit(0)
-
-data["markdownEditorViewState"] = kept
-conn.execute(
-    "UPDATE ItemTable SET value=? WHERE key='memento/markdownEditor'",
-    (json.dumps(data, ensure_ascii=False),),
-)
-conn.commit()
-print(f"已清除 {len(removed)} 条缓存 @ {db}")
-for p in removed:
-    print(f"  - {p}")
+        del data[uri]
+if removed:
+    conn.execute("UPDATE ItemTable SET value=? WHERE key=?", (json.dumps(data, ensure_ascii=False), key))
+    conn.commit()
+    print(f"已清除 global 模式偏好 {len(removed)} 条")
+    for p in removed:
+        print(f"  - {p}")
 PY
-  found=1
-done < <(find "$WS_ROOT" -name workspace.json -print0 2>/dev/null)
+fi
 
 if [[ "$found" -eq 0 ]]; then
   echo "未找到 LearnToLilith 工作区。"
 else
   echo
-  echo "完成。重新打开 Cursor → 打开集群架构/知识点.md → 应能看到 learnPreview: 3 的 frontmatter。"
+  echo "完成。重开 Cursor → 打开 01-集群架构/知识点.md → Revert File → Preview。"
 fi
