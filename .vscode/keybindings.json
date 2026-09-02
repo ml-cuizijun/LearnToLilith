@@ -1,0 +1,12 @@
+[
+  {
+    "key": "cmd+shift+e",
+    "command": "workbench.action.reopenTextEditor",
+    "when": "activeCustomEditorId == 'vscode.markdown.preview.editor'"
+  },
+  {
+    "key": "cmd+shift+r",
+    "command": "markdownEditor.toggleMode",
+    "when": "markdownEditorActive"
+  }
+]

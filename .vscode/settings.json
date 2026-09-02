@@ -1,8 +1,12 @@
 {
-  // Preview|Markdown 红色标题：依赖 .vscode/apply-cursor-preview-red.sh 注入 Cursor workbench。
-  // Cursor 大版本更新后若红色消失，在仓库根目录再跑：
-  //   bash .vscode/apply-cursor-preview-red.sh
-  // 然后 Cmd+Q 完全退出再打开。
+  // 知识点/练习题：默认用 VS Code 原生 Markdown Preview（完整渲染 + 红标题 + 全宽）。
+  // 顶部 Preview|Markdown（TipTap）有截断/缓存 bug，不再作为默认阅读方式。
+  // 要编辑：双击预览正文，或 Cmd+Shift+E 切回文本编辑器。
+  "workbench.editorAssociations": {
+    "**/知识点.md": "vscode.markdown.preview.editor",
+    "**/练习题.md": "vscode.markdown.preview.editor"
+  },
+  "markdown.preview.doubleClickToSwitchToEditor": true,
   "editor.stickyScroll.enabled": true,
   "editor.stickyScroll.maxLineCount": 6,
   "outline.collapseItems": "alwaysExpand",
@@ -11,6 +15,5 @@
     ".vscode/markdown-preview.css"
   ],
   "markdown.preview.breaks": true,
-  // Preview 只显示部分标题时：Cmd+Shift+P →「Markdown Editor: Toggle Editor Mode」切两次强制重渲染；
-  // 若仍异常且出现 installation corrupt 提示，在仓库根目录跑：bash .vscode/remove-cursor-preview-red.sh
+  // 若坚持用顶部 Preview|Markdown：bash .vscode/apply-cursor-preview-red.sh 后 Cmd+Q 重启
 }

@@ -6,9 +6,11 @@ body.vscode-body,
 .vscode-body,
 body {
   line-height: 1.75;
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 0 1.25em 3em;
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 24px 48px 80px !important;
+  box-sizing: border-box;
 }
 
 body.vscode-body h1,

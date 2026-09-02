@@ -3,14 +3,26 @@
  * 注入：bash .vscode/apply-cursor-preview-red.sh
  */
 
-.markdown-editor-react__richtext-content {
-  /* 默认 800px 太窄，左右大片空白；拉满编辑器可用宽度 */
+/* 外层滚动区拉满编辑器宽度/高度（Cursor 默认 max-width:800px;margin:0 auto） */
+.markdown-editor-react,
+.markdown-editor-react__content,
+.markdown-editor-react__scroll-area-wrapper,
+.markdown-editor-react__scroll-area,
+.markdown-editor-react__frontmatter-panel {
   max-width: none !important;
   width: 100% !important;
+  height: 100% !important;
+  flex: 1 1 auto !important;
+}
+
+.markdown-editor-react__richtext-content {
+  max-width: none !important;
+  width: 100% !important;
+  min-height: 100% !important;
+  box-sizing: border-box !important;
   --markdown-editor-content-padding: 24px 40px 80px !important;
 }
 
-/* 有的版本把限宽写在内层滚动区，一起放开 */
 .markdown-editor-react__scroll-area-wrapper .markdown-editor-react__richtext-content,
 .markdown-editor-react__content .markdown-editor-react__richtext-content {
   max-width: none !important;
@@ -23,6 +35,12 @@
   font-size: 15.5px !important;
   line-height: 1.75 !important;
   letter-spacing: 0.01em;
+}
+
+/* Cursor 默认 content-visibility:auto 会把屏外块压成 1.5em，看起来像「只有 3 节」 */
+.markdown-editor-react__richtext-content .ProseMirror > :not(:has(> [data-project-database-node])) {
+  content-visibility: visible !important;
+  contain-intrinsic-block-size: auto !important;
 }
 
 /* ========== 标题：红 + 呼吸感 ========== */
