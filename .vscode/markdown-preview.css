@@ -56,11 +56,40 @@ body h6 {
 body.vscode-body blockquote,
 .vscode-body blockquote,
 body blockquote {
-  border-left: 4px solid rgba(198, 40, 40, 0.55);
-  background: rgba(198, 40, 40, 0.06);
+  border-left: 4px solid rgba(96, 165, 250, 0.75);
+  background: rgba(147, 197, 253, 0.16);
   padding: 0.55em 0.9em;
   border-radius: 0 6px 6px 0;
   margin: 0.85em 0;
+}
+
+body.vscode-body blockquote blockquote,
+.vscode-body blockquote blockquote,
+body blockquote blockquote {
+  margin-left: 1.35em;
+  border-left-color: rgba(96, 165, 250, 0.55);
+  background: rgba(147, 197, 253, 0.1);
+}
+
+body.vscode-body li > ul,
+body.vscode-body li > ol,
+.vscode-body li > ul,
+.vscode-body li > ol,
+body li > ul,
+body li > ol {
+  margin-left: 0.25em;
+  padding: 0.35em 0.55em 0.35em 1.35em;
+  border-left: 2px solid rgba(96, 165, 250, 0.5);
+  border-radius: 0 6px 6px 0;
+  background: rgba(147, 197, 253, 0.12);
+}
+
+body.vscode-body h4,
+.vscode-body h4,
+body h4 {
+  margin-left: 0.55em;
+  padding-left: 0.7em;
+  border-left: 3px solid rgba(96, 165, 250, 0.6);
 }
 
 body.vscode-body h2[id^="q"] + p,
@@ -83,7 +112,7 @@ body pre {
 body.vscode-body table th,
 .vscode-body table th,
 body table th {
-  background: rgba(198, 40, 40, 0.08);
+  background: rgba(147, 197, 253, 0.18);
 }
 
 body.vscode-body hr,
